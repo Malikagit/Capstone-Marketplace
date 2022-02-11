@@ -9,7 +9,7 @@ const authRouter = require('./routes/auth');
 const app = express();
 const db = require("./models")
 
-const { Product, User, Category } = require('./models')
+const { Product, User, Category, CategoryProduct } = require('./models')
 
 
 

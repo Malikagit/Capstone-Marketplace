@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
             this.hasMany(models.UserProduct, { uniqueKey: "productId" });
             this.belongsToMany(models.Category, {
                 through: "CategoryProduct",
-                foreignKey: "categoryId",
+                uniqueKey: "productId",
             });
         }
     }
@@ -25,7 +25,6 @@ module.exports = (sequelize, DataTypes) => {
             picturePath: DataTypes.STRING,
             description: DataTypes.TEXT,
             seller: DataTypes.INTEGER,
-            CategoryProduct: DataTypes.INTEGER
         },
         {
             sequelize,
