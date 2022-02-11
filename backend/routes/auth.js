@@ -14,3 +14,6 @@ router.get('/signup', controller.getSignupForm);
 
 //POST Signup
 router.post('/signup', controller.signup);
+
+
+module.exports = router;

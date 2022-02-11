@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
     class Product extends Model {
         /**
@@ -9,12 +10,12 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
-            this.belongsTo(models.User, { uniqueKey: "seller" });
+            this.belongsTo(models.User, { foreignKey: "seller", targetKey: 'id' });
             this.hasMany(models.Rating, { uniqueKey: "productId" });
             this.hasMany(models.UserProduct, { uniqueKey: "productId" });
             this.belongsToMany(models.Category, {
                 through: "CategoryProduct",
-                uniqueKey: "categoryId",
+                foreignKey: "categoryId",
             });
         }
     }
@@ -24,10 +25,11 @@ module.exports = (sequelize, DataTypes) => {
             picturePath: DataTypes.STRING,
             description: DataTypes.TEXT,
             seller: DataTypes.INTEGER,
+            CategoryProduct: DataTypes.INTEGER
         },
         {
             sequelize,
-            modelName: "Product",
+            modelName: "Product"
         }
     );
     return Product;

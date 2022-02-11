@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "postgres",
-    "password": "hello",
+    "password": "matrice",
     "database": "marketplace_dev",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
-    "password": "hello",
+    "password": "matrice",
     "database": "marketplace-test",
     "host": "127.0.0.1",
     "dialect": "postgres"
