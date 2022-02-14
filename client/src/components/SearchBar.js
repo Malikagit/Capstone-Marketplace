@@ -1,26 +1,28 @@
 import * as React from 'react';
-// import ReactDOM from 'react-dom';
-import { TextField } from '@mui/material';
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import { Button } from '@mui/material';
+import { Stack } from '@mui/material';
+import { Container } from '@mui/material';
 
-const SearchBar = () => {
-  return (
-    <>
-    <Stack mt={5} direction="row" justifyContent="center">
-        <Button variant='outlined'><Typography style={{ textTransform: 'none' }}>Catégorie</Typography></Button>
-        <TextField id="outlined-basic" label="Je recherche..." variant="outlined" />
-        <TextField id="outlined-basic" label="Prix minimum" variant="outlined" />
-        <TextField id="outlined-basic" label="Prix maximum" variant="outlined" />
-        <TextField id="outlined-basic" label="Ville" variant="outlined" />
+export default function SearchBar() {
+    return (
+        <Container sx={{display:'flex', alignItems:'center'}}>
+        <Box
+        sx={{display:'flex', alignItems:'center', mb:5, textAlign:'center'}}
+        component="form"
+        noValidate
+        autoComplete="off"
+        >
+        <Stack spacing={0.5} direction='row'>
+            <Button variant='outlined' sx={{alignItems:'center', borderColor:'lightgray', textTransform:'capitalize'}}>Catégories</Button>
+            <TextField id="outlined-basic" label="Je recherche..." variant="outlined" sx={{width:'20vw'}}/>
+            <TextField id="outlined-basic" inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }} label="Prix min" variant="outlined"  sx={{width:'10vw'}}/>
+            <TextField id="outlined-basic" inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }} label="Prix max" variant="outlined" sx={{width:'10vw'}}/>
+            <TextField id="outlined-basic" label="Ville" variant="outlined"/>
+            <Button variant='contained' sx={{alignItems:'center', backgroundColor:'orange'}}>Rechercher</Button>
         </Stack>
-
-    <Stack mt={2} mb={10} direction="row" justifyContent="center">
-      <Button variant='contained'>Rechercher !</Button>
-    </Stack>
-   
-    </>
-  )}
-
-  export default SearchBar;
+      </Box>
+      </Container>
+    );
+  }
