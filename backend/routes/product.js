@@ -12,8 +12,10 @@ router.post('/product', controller.createArticle)
 router.put('/products/:id', controller.updatArticle)
 router.delete('products/:id', controller.deleteArticle)
 router.get('/categories', controller.getCategories)
+router.get('/categories/name', controller.getCatByName)
 router.get('/categories/:name/products', controller.getArticlesByCategory)
+router.delete('/categories/:id', controller.deleteCategory)
 //get favoris
-router.get('/userfavoris', controller.getWishList)
+//router.get('/userfavoris', controller.getWishList)
 
 module.exports = router;
