@@ -17,11 +17,11 @@ module.exports = (sequelize, DataTypes) => {
                 uniqueKey: 'productId'
             });
             this.belongsTo(models.User, {
-                as: 'author',
+                name: 'author',
                 uniqueKey: 'author'
             });
             this.belongsTo(models.User, {
-                as: 'userId',
+                name: 'userId',
                 uniqueKey: 'userId'
             });
             // define association here

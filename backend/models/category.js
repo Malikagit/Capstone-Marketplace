@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
             this.belongsToMany(models.Product, {
                 through: "CategoryProduct",
                 uniqueKey: "categoryId",
+                onDelete: 'RESTRICT',
+                onUpdate: 'RESTRICT'
             });
             // define association here
         }

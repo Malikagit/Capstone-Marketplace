@@ -1,14 +1,18 @@
 const express = require('express');
-require('dotenv').config();
-const cookieParser = require('cookie-parser');
-const cors = require('cors');
-
-const bodyParser = require('body-parser');
-const authRouter = require('./routes/auth');
-const userRouter = require('./routes/user');
-
 const app = express();
 const port = process.env.PORT || 5000;
+
+require('dotenv').config();
+
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+
+const indexRouter = require('./routes/product');
+const authRouter = require('./routes/auth');
+//const userRouter = require('./routes/user');
+
+
 
 const db = require("./models");
 
@@ -27,8 +31,9 @@ app.use(getUserFromToken);
 
 
 // Register routes
+app.use('/', indexRouter);
 app.use('/', authRouter);
-app.use('/', userRouter);
+//app.use('/', userRouter);
 
 app.listen(port, () => {
     console.log(`App listening on http://localhost:${port}`)
