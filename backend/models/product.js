@@ -14,9 +14,11 @@ module.exports = (sequelize, DataTypes) => {
             this.hasMany(models.Rating, { uniqueKey: "productId" });
             this.hasMany(models.UserProduct, { uniqueKey: "productId" });
             this.belongsToMany(models.Category, {
-                through: "CategoryProduct",
-                uniqueKey: "productId",
+                through: `CategoryProduct`,
+                foreignKey: `productId`,
             });
+
+            // const CategoryProduct = sequelize.define('CategoryProdcut', { count: DataTypes.INTEGER }, { timestamps: false });
         }
     }
     Product.init(
