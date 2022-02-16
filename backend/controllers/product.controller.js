@@ -1,10 +1,12 @@
 //const { where } = require('sequelize/types');
 const models = require('../models');
+const product = require('../models/product');
 
 const Product = models.Product;
 const Category = models.Category;
-const CategoryProduct = models.CategoryProduct
+
 const UserProduct = models.UserProduct
+const User = models.User
 //lister tous les articles
 exports.getArticles = (req, res) => {
     Product.findAll({ raw: true, limit: 16 })
@@ -103,17 +105,21 @@ exports.getCatByName = (req, res) => {
 }
 //get all articles for Category
 exports.getArticlesByCategory = (req, res) => {
-
     //const nameCat = req.params.name;
     // console.log(nameCat);
     // Category.findOne({ where: { name: nameCat } })
     //     .then(categoryto => {
-    Product.findAll({
+    Category.findOne({
+        where: { id: req.params.id },
         include:
-            [Category]
+            [{
+                model: Product
+
+            }
+            ]
     })
         .then(products => {
-            console.log(products);
+
             res.send(products)
         })
         .catch(err => { console.log(err); })
@@ -128,11 +134,23 @@ exports.deleteCategory = (req, res) => {
 }
 // //get wishList for user
 exports.getWishList = (req, res) => {
-    UserProduct.findAll({
-        where: { favorited: true },
-        limit: 10,
-        raw: true
-    })
+    User.findAll(
+        {
+            where: { id: req.params.id },
+            include: [{
+                model: Product,
+                as: 'items'
+                ,
+                through: {
+                    attributes: ['userId', 'productId', 'favorited'],
+
+                    raw: true
+                }
+
+
+            }]
+            // where: { id: req.params.id, favorited: true }
+        })
         .then(favoris => {
             res.send(favoris)
         })

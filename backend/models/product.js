@@ -10,15 +10,14 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
-            this.belongsTo(models.User, { foreignKey: "seller", targetKey: 'id' });
+            this.belongsTo(models.User, { as: 'vendeur', foreignKey: "seller", targetKey: 'id' });
             this.hasMany(models.Rating, { uniqueKey: "productId" });
-            this.hasMany(models.UserProduct, { uniqueKey: "productId" });
+            //belongs
+            this.belongsToMany(models.User, { as: 'favorisItems', through: 'UserProducts', foreignKey: "productId" });
             this.belongsToMany(models.Category, {
-                through: `CategoryProduct`,
-                foreignKey: `productId`,
+                through: "CategoryProducts",
+                foreignKey: "productId",
             });
-
-            // const CategoryProduct = sequelize.define('CategoryProdcut', { count: DataTypes.INTEGER }, { timestamps: false });
         }
     }
     Product.init(
@@ -27,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
             picturePath: DataTypes.STRING,
             description: DataTypes.TEXT,
             seller: DataTypes.INTEGER,
+            //vendu: DataTypes.BOOLEAN
         },
         {
             sequelize,

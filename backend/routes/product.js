@@ -16,6 +16,6 @@ router.get('/categories/:id', controller.getCatByName)
 router.get('/categories/:id/products', controller.getArticlesByCategory)
 router.delete('/categories/:id', controller.deleteCategory)
 //get favoris
-//router.get('/userfavoris', controller.getWishList)
+router.get('/userfavoris/:id', controller.getWishList)
 
 module.exports = router;
