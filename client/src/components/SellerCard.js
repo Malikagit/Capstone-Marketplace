@@ -24,7 +24,6 @@ const SellerCard = (props) => {
         alignItems:'center',
         justifyContent:'center',
         textAlign:'center',
-        paddingBottom:'10px'
     }
 
     return (
@@ -34,11 +33,11 @@ const SellerCard = (props) => {
                 <Avatar
                     alt={props.name}
                     src={props.imagePath}
-                    sx={{ width: 64, height: 64 }}
-                /><br/>
+                    sx={{ width: 64, height: 64, marginBottom:'10px' }}
+                />
             </Grid>
                 <Typography>{props.name}</Typography>
-                <Typography>{props.rating}<Star sx={{pt:1.6, color:'orange'}}/></Typography><br/>
+                <Typography sx={{marginLeft:'10px'}}>{props.rating}<Star sx={{pt:1.6, color:'orange'}}/></Typography><br/>
                 <Button variant='contained' sx={{alignItems:'center', backgroundColor:'orange', textTransform:'none'}}>Envoyer un message</Button>
             </Card>
         </Paper>

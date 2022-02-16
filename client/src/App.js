@@ -5,6 +5,8 @@ import AppBar from './components/AppBar'
 import CategoriesBox from './components/CategoriesBox'
 import SearchBar from './components/SearchBar'
 import Product from './components/ProductBox'
+import TestDialog from './components/TestDialog'
+import AnotherDialog from './components/AnotherDialog'
 
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -21,6 +23,8 @@ const App = () => {
 				</Grid>
 			</Container>
 			<Product/>
+			<TestDialog/>
+			<AnotherDialog/>
 		</div>
 	);
 }
