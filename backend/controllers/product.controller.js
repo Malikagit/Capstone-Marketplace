@@ -1,10 +1,12 @@
 //const { where } = require('sequelize/types');
 const models = require('../models');
+const product = require('../models/product');
 
 const Product = models.Product;
 const Category = models.Category;
-const CategoryProduct = models.CategoryProduct
+
 const UserProduct = models.UserProduct
+const User = models.User
 //lister tous les articles
 exports.getArticles = (req, res) => {
     Product.findAll({ raw: true, limit: 16 })
@@ -13,9 +15,9 @@ exports.getArticles = (req, res) => {
 }
 //afficer detail product 
 exports.getArticleById = (req, res) => {
-    const { id } = req.params.id;
+    const idItem = req.params.id;
 
-    Product.findOne({ where: { id } })
+    Product.findOne({ where: { id: idItem } })
         .then(prodcutData => {
             console.log(prodcutData);
             res.send(prodcutData);
@@ -26,41 +28,57 @@ exports.getArticleById = (req, res) => {
 
 //add new article
 exports.createArticle = (req, res) => {
-    const { idSellere } = req.user
-    Product.findOrCreate([{
-        name: req.name,
-        picturePath: req.body.picturePath,
-        description: req.body.description,
-        sller: idSellere
-    }], { raw: true })
-        .then(articleAdd => {
-            res.redirect("/procuctDetails");
+    //  const { idSellere } = req.user
+    const articleAdd = Product.findOrCreate(
+        {
+            where: {
+                name: req.body.name,
+                picturePath: req.body.picturePath,
+                description: req.body.description,
+                seller: 22
+            }
+        }
+    )
+        .then(_ => {
+            res.redirect("/");
             console.log(articleAdd);
         })
         .catch(err => { console.error(err) })
 }
 //update prodcut
 exports.updatArticle = (req, res) => {
-    const { id_art } = req.params.id;
-    Product.update({ where: { id: id_art } }, {
+    const id_art = req.params.id;
+
+    Product.update({
         name: req.body.name,
         picturePath: req.body.picturePath,
         description: req.body.description,
         seller: req.user
-    })
-        .then(_ => {
+    },
+        {
+            where: {
+                id: id_art
+            }
+        })
+        .then(modifiedItem => {
             console.log('product bien modifié');
+            console.log(modifiedItem);
             //res.redirect(`/products/${id_art}`)
         })
         .catch(err => { console.error(err); })
 }
 //delete Article
 exports.deleteArticle = (req, res) => {
-    const elemSuprime = Product.destroy({ where: { id: parseInt(req.params.id) } },
+    console.log(req.params.id);
+    Product.destroy(
+        {
+            truncate: { cascade: true }
+        },
+        { where: { id: req.params.id } }
     )
         .then(_ => {
-            console.log(elemSuprime);
-            res.send(elemSuprime);
+            res.status(200).send('Item deleted')
+            console.log('item bied suprimé');
 
         })
         .catch(err => { console.error(err); })
@@ -70,38 +88,43 @@ exports.getCategories = (req, res) => {
     Category.findAll({ limit: 10, raw: true })
         .then(categories => {
             res.send(categories);
-            console.log(categories);
+
         })
         .catch(err => { console.log(err); })
 }
 //get category by name
 
 exports.getCatByName = (req, res) => {
-    Category.findAll({ where: { name: req.params.name } })
+    console.log(req.params.name);
+    Category.findAll({ where: { id: req.params.id } })
         .then(cat => {
             console.log(cat);
             res.send(cat)
         })
-        .cat(err => { console.log(err); })
+        .catch(err => { console.log(err); })
 }
 //get all articles for Category
 exports.getArticlesByCategory = (req, res) => {
+    //const nameCat = req.params.name;
+    // console.log(nameCat);
+    // Category.findOne({ where: { name: nameCat } })
+    //     .then(categoryto => {
+    Category.findOne({
+        where: { id: req.params.id },
+        include:
+            [{
+                model: Product
 
-    const { nameCat } = req.params.name;
-    Category.findOne({ where: { name: nameCat } })
-        .then(categoryto => {
-            CategoryProduct.findAll({
-                where: { categoryId: categoryto.id },
-                include: Product,
-                raw: true, nest: true,
-            })
-                .then(products => {
-                    console.log(products);
-                    res.send(products)
-                })
-                .catch(err => { console.log(err); })
+            }
+            ]
+    })
+        .then(products => {
+
+            res.send(products)
         })
         .catch(err => { console.log(err); })
+
+    //   .catch(err => { console.log(err); })
 }
 //delete category
 exports.deleteCategory = (req, res) => {
@@ -111,11 +134,23 @@ exports.deleteCategory = (req, res) => {
 }
 // //get wishList for user
 exports.getWishList = (req, res) => {
-    UserProduct.findAll({
-        where: { favorited: true },
-        limit: 10,
-        raw: true
-    })
+    User.findAll(
+        {
+            where: { id: req.params.id },
+            include: [{
+                model: Product,
+                as: 'items'
+                ,
+                through: {
+                    attributes: ['userId', 'productId', 'favorited'],
+
+                    raw: true
+                }
+
+
+            }]
+            // where: { id: req.params.id, favorited: true }
+        })
         .then(favoris => {
             res.send(favoris)
         })

@@ -7,15 +7,15 @@ router.get('/', controller.getArticles)
 router.get('/products/:id', controller.getArticleById);
 
 //create Item
-router.post('/product', controller.createArticle)
+router.post('/products', controller.createArticle)
 //update product 
 router.put('/products/:id', controller.updatArticle)
 router.delete('products/:id', controller.deleteArticle)
 router.get('/categories', controller.getCategories)
-router.get('/categories/name', controller.getCatByName)
-router.get('/categories/:name/products', controller.getArticlesByCategory)
+router.get('/categories/:id', controller.getCatByName)
+router.get('/categories/:id/products', controller.getArticlesByCategory)
 router.delete('/categories/:id', controller.deleteCategory)
 //get favoris
-//router.get('/userfavoris', controller.getWishList)
+router.get('/userfavoris/:id', controller.getWishList)
 
 module.exports = router;

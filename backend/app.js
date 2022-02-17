@@ -13,7 +13,6 @@ const authRouter = require('./routes/auth');
 //const userRouter = require('./routes/user');
 
 
-
 const db = require("./models");
 
 const { getUserFromToken, addTokenFunc } = require('./config/jwt');
