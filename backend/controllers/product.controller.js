@@ -7,6 +7,7 @@ const Category = models.Category;
 
 const UserProduct = models.UserProduct
 const User = models.User
+const Rating = models.Rating
 //lister tous les articles
 exports.getArticles = (req, res) => {
     Product.findAll({ raw: true, limit: 16 })
@@ -75,19 +76,17 @@ exports.updatArticle = async (req, res) => {
 }
 //get ratingArticle
 exports.getRatingArticle = (req, res) => {
-    this.getRatingArticle.findAll(
-        {
-            where: { productId: req.params.id }
-        },
-        {
-            attributes: {
-                include: [
-                    [sequelize.fn('COUNT', sequelize.col('rating')), 'n_ratings']
-                ]
-            }
-        })
-        .then(_ => {
-            res.send.json()
+    Product.findAll({
+        where: { id: req.params.id }
+        ,
+
+        include: [
+            "ratings"
+        ]
+    }
+    )
+        .then(result => {
+            res.json(result)
         })
 
         .catch(err => { console.log(err); })
