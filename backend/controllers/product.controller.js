@@ -1,22 +1,22 @@
 //const { where } = require('sequelize/types');
 const models = require('../models');
 const product = require('../models/product');
-
+const Rating = models.Rating;
 const Product = models.Product;
 const Category = models.Category;
-
 const UserProduct = models.UserProduct
 const User = models.User
 //lister tous les articles
 exports.getArticles = (req, res) => {
     Product.findAll({ raw: true, limit: 16 })
-        .then(articles => { res.send(articles) })
+        .then(articles => {
+            res.json({ articles })
+        })
         .catch(err => { res.status(404).send(err) })
 }
 //afficer detail product 
 exports.getArticleById = (req, res) => {
     const idItem = req.params.id;
-
     Product.findOne({ where: { id: idItem } })
         .then(prodcutData => {
             console.log(prodcutData);
@@ -78,22 +78,18 @@ exports.updatArticle = async (req, res) => {
 }
 //get ratingArticle
 exports.getRatingArticle = (req, res) => {
-    this.getRatingArticle.findAll(
-        {
-            where: { productId: req.params.id }
-        },
-        {
-            attributes: {
-                include: [
-                    [sequelize.fn('COUNT', sequelize.col('rating')), 'n_ratings']
-                ]
-            }
-        })
-        .then(_ => {
-            res.send.json()
-        })
+    Product.findAll({
+        where: { id: req.params.id },
 
-        .catch(err => { console.log(err); })
+        include: { model: Rating, as: 'ratings', attributes: ['rating', 'comment'] },
+        attributes: ['name', 'picturePath']
+    })
+        .then((result) => {
+            res.json(result)
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 }
 //delete Article
 exports.deleteArticle = (req, res) => {
@@ -117,7 +113,7 @@ exports.createCategory = (req, res) => {
 exports.getCategories = (req, res) => {
     Category.findAll({ limit: 10, raw: true })
         .then(categories => {
-            res.send(categories);
+            res.json(categories);
 
         })
         .catch(err => { console.log(err); })
@@ -129,7 +125,7 @@ exports.getCatByName = (req, res) => {
     Category.findAll({ where: { id: req.params.id } })
         .then(cat => {
             console.log(cat);
-            res.send(cat)
+            res.json(cat)
         })
         .catch(err => { console.log(err); })
 }
@@ -150,7 +146,7 @@ exports.getArticlesByCategory = (req, res) => {
     })
         .then(products => {
 
-            res.send(products)
+            res.json(products)
         })
         .catch(err => { console.log(err); })
 
@@ -174,7 +170,7 @@ exports.updateCategory = (req, res) => {
 //delete category
 exports.deleteCategory = (req, res) => {
     Category.destroy({ where: { id: req.params.id } })
-        .then(catdeleted => { if (catdeleted) res.send('category bien supprimée') })
+        .then(catdeleted => { if (catdeleted) res.json('category bien supprimée') })
         .catch(err => { console.log(err); })
 }
 // //get wishList for user
@@ -195,7 +191,7 @@ exports.getWishList = (req, res) => {
             // where: { id: req.params.id, favorited: true }
         })
         .then(favoris => {
-            res.send(favoris)
+            res.json(favoris)
         })
         .catch(err => { console.log(err); })
 }
