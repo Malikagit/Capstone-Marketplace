@@ -9,11 +9,12 @@ router.get('/', controller.getArticles)
 router.get('/products/:id', controller.getArticleById);
 
 //create Item
-router.post('/products', controller.createArticle)
+router.post('/products', requireAuth, controller.createArticle)
 //update product 
 router.put('/products/:id', requireAuth, controller.updatArticle)
 router.get('/products/:id/rating', controller.getRatingArticle)
 router.delete('/products/:id', requireAuth, controller.deleteArticle)
+router.post('/categories', requireAdmin, controller.createCategory)
 router.get('/categories', controller.getCategories)
 router.get('/categories/:id', controller.getCatByName)
 router.get('/categories/:id/products', controller.getArticlesByCategory)

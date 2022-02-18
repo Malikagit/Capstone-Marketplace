@@ -28,19 +28,22 @@ exports.getArticleById = (req, res) => {
 
 //add new article
 exports.createArticle = (req, res) => {
-    //  const { idSellere } = req.user
+    const { name, description, picturePath, seller } = req.body
+    const { idSellere } = req.user
+    console.log(idSellere);
+
     const articleAdd = Product.findOrCreate(
         {
             where: {
-                name: req.body.name,
-                picturePath: req.body.picturePath,
-                description: req.body.description,
-                seller: 22
+                name,
+                picturePath,
+                description,
+                seller: idSellere
             }
         }
     )
         .then(_ => {
-            res.json({ message: "hello new product added" });
+            res.json({ message: "hello new product added", name, picturePath, description, seller });
             //  console.log(articleAdd);
         })
         .catch(err => { console.error(err) })
@@ -102,6 +105,13 @@ exports.deleteArticle = (req, res) => {
                 res.status(200).send('Item deleted')
         })
         .catch(err => { console.error(err); })
+}
+//create Category
+exports.createCategory = (req, res) => {
+    nameCat = req.body.name;
+    Category.findOrCreate({ where: { name: nameCat } })
+        .then(_ => res.json({ message: "new category ajoute", nameCat }))
+        .catch(err => console.log(err))
 }
 //get categories
 exports.getCategories = (req, res) => {
