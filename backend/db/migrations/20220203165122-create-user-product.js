@@ -10,15 +10,22 @@ module.exports = {
       },
       userId: {
         type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         references: {
-            model: "Users",
+          model: "Users",
+          key: 'id'
         },
       },
       productId: {
         type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         references: {
           model: "Products",
-      },
+          key: 'id'
+        },
+
       },
       favorited: {
         type: Sequelize.BOOLEAN,

@@ -10,20 +10,26 @@ module.exports = {
       },
       messageId: {
         type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         references: {
-            model: "Messages",
+          model: "Messages",
+          key: 'id'
         },
       },
       userId: {
         type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         references: {
-            model: "Users",
+          model: "Users",
+          key: 'id'
         },
       },
       author: {
         type: Sequelize.INTEGER,
         references: {
-            model: "Users",
+          model: "Users",
         },
       },
       createdAt: {
@@ -34,8 +40,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE'
+
     });
   },
   async down(queryInterface, Sequelize) {

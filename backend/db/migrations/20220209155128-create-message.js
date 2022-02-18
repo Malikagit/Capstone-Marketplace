@@ -13,8 +13,11 @@ module.exports = {
       },
       author: {
         type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         references: {
-            model: "Users",
+          model: "Users",
+          key: 'id'
         }
       },
       createdAt: {
@@ -25,8 +28,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE'
+
     });
   },
   async down(queryInterface, Sequelize) {

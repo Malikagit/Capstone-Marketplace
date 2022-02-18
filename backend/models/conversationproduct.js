@@ -10,8 +10,12 @@ module.exports = (sequelize, DataTypes) => {
         static associate(models) {
             this.hasMany(models.Message, {
                 uniqueKey: 'messageId',
-                onUpdate: 'cascade',
-                onDelete: 'cascade'
+                onDelete: "CASCADE",
+                onUpdate: "CASCADE",
+                references: {
+                    model: "Messages",
+                    key: 'id'
+                },
             });
             this.belongsTo(models.Product, {
                 uniqueKey: 'productId'

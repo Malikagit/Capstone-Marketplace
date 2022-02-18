@@ -40,46 +40,66 @@ exports.createArticle = (req, res) => {
         }
     )
         .then(_ => {
-            res.redirect("/");
-            console.log(articleAdd);
+            res.json({ message: "hello new product added" });
+            //  console.log(articleAdd);
         })
         .catch(err => { console.error(err) })
 }
 //update prodcut
-exports.updatArticle = (req, res) => {
-    const id_art = req.params.id;
+exports.updatArticle = async (req, res) => {
 
-    Product.update({
-        name: req.body.name,
-        picturePath: req.body.picturePath,
-        description: req.body.description,
-        seller: req.user
-    },
+    const id_art = req.params.id;
+    let product = await Product.findOne({ where: { id: id_art } });
+    if (product === null) {
+        res.json({ message: "Product not found" })
+    } else {
+        const { name, description, picturePath, seller } = req.body
+
+        Product.update({
+            name,
+            picturePath,
+            description,
+            seller
+        },
+            {
+                where: {
+                    id: id_art
+                }
+            })
+            .then(_ => {
+                res.json({ message: "produit bien modifie" })
+
+            })
+            .catch(err => { console.error(err); })
+    }
+}
+//get ratingArticle
+exports.getRatingArticle = (req, res) => {
+    this.getRatingArticle.findAll(
         {
-            where: {
-                id: id_art
+            where: { productId: req.params.id }
+        },
+        {
+            attributes: {
+                include: [
+                    [sequelize.fn('COUNT', sequelize.col('rating')), 'n_ratings']
+                ]
             }
         })
-        .then(modifiedItem => {
-            console.log('product bien modifié');
-            console.log(modifiedItem);
-            //res.redirect(`/products/${id_art}`)
+        .then(_ => {
+            res.send.json()
         })
-        .catch(err => { console.error(err); })
+
+        .catch(err => { console.log(err); })
 }
 //delete Article
 exports.deleteArticle = (req, res) => {
-    console.log(req.params.id);
-    Product.destroy(
-        {
-            truncate: { cascade: true }
-        },
+    const eldeleted = Product.destroy(
         { where: { id: req.params.id } }
     )
         .then(_ => {
-            res.status(200).send('Item deleted')
-            console.log('item bied suprimé');
-
+            if (eldeleted)
+                res.status(200).send('Item deleted')
         })
         .catch(err => { console.error(err); })
 }
@@ -126,6 +146,21 @@ exports.getArticlesByCategory = (req, res) => {
 
     //   .catch(err => { console.log(err); })
 }
+//update Category
+exports.updateCategory = (req, res) => {
+    const name = req.body.name
+    Category.update({
+        name
+
+    },
+        {
+            where: { id: req.params.id }
+        })
+        .then(_ => {
+            res.json({ message: "category bien modifie", name })
+        })
+}
+
 //delete category
 exports.deleteCategory = (req, res) => {
     Category.destroy({ where: { id: req.params.id } })
@@ -142,12 +177,10 @@ exports.getWishList = (req, res) => {
                 as: 'items'
                 ,
                 through: {
+                    model: UserProduct,
                     attributes: ['userId', 'productId', 'favorited'],
-
-                    raw: true
+                    where: { favorited: true }
                 }
-
-
             }]
             // where: { id: req.params.id, favorited: true }
         })
