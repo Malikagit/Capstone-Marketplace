@@ -5,7 +5,7 @@ import { Star } from '@mui/icons-material';
 import { Button } from "@mui/material";
 import { Avatar } from "@mui/material";
 import { Grid } from "@mui/material";
-
+import React from 'react';
 const SellerCard = (props) => {
 
     // const styleSellerPicture = {
@@ -18,28 +18,28 @@ const SellerCard = (props) => {
     //     justifyContent:'center',
     //     textAlign:'center',
     // }
-    
+
     const styleSellerCard = {
-        display:'flex',
-        alignItems:'center',
-        justifyContent:'center',
-        textAlign:'center',
-        paddingBottom:'10px'
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+        paddingBottom: '10px'
     }
 
     return (
         <Paper style={styleSellerCard}>
-            <Card><br/>
-            <Grid container sx={{ justifyContent: "center", display: "flex" }}>
-                <Avatar
-                    alt={props.name}
-                    src={props.imagePath}
-                    sx={{ width: 64, height: 64 }}
-                /><br/>
-            </Grid>
+            <Card><br />
+                <Grid container sx={{ justifyContent: "center", display: "flex" }}>
+                    <Avatar
+                        alt={props.name}
+                        src={props.imagePath}
+                        sx={{ width: 64, height: 64 }}
+                    /><br />
+                </Grid>
                 <Typography>{props.name}</Typography>
-                <Typography>{props.rating}<Star sx={{pt:1.6, color:'orange'}}/></Typography><br/>
-                <Button variant='contained' sx={{alignItems:'center', backgroundColor:'orange', textTransform:'none'}}>Envoyer un message</Button>
+                <Typography>{props.rating}<Star sx={{ pt: 1.6, color: 'orange' }} /></Typography><br />
+                <Button variant='contained' sx={{ alignItems: 'center', backgroundColor: 'orange', textTransform: 'none' }}>Envoyer un message</Button>
             </Card>
         </Paper>
     )
