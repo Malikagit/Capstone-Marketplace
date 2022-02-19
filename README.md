@@ -8,7 +8,7 @@ C2C signifie “Customer to Customer”, c’est-à-dire que les utilisateurs n�
 * Front-end :  ReactJs, MaterialUI
 * Back-end : NodeJs, ExpressJs
     
-## Base de donnée
+## Base de données
 * Postgres, Sequelize
 
 
