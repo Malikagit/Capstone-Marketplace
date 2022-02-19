@@ -1,10 +1,11 @@
 import './App.css';
 
 import ItemsBox from './components/ItemsBox';
-import AppBar from './components/AppBar'
-import CategoriesBox from './components/CategoriesBox'
-import SearchBar from './components/SearchBar'
-import Product from './components/ProductBox'
+import AppBar from './components/AppBar';
+import CategoriesBox from './components/CategoriesBox';
+import SearchBar from './components/SearchBar';
+import Product from './components/ProductBox';
+import TestDialog from './components/CategoryDialog';
 
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -21,8 +22,9 @@ const App = () => {
 				</Grid>
 			</Container>
 			<Product/>
+			<TestDialog/>
 		</div>
 	);
-}
+};
 
 export default App;
