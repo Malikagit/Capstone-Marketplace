@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Grid } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import ItemCard from "./ItemCard";
 
 const ItemsBox = () => {
