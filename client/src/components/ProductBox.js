@@ -32,7 +32,7 @@ const ProductBox = () => {
                     name:"Mon super truc que je vends",
                     price:2500,
                     imagePath:"https://picsum.photos/960/540?random=0",
-                    description:"",
+                    description:"Wikipédia est une encyclopédie universelle et multilingue créée par Jimmy Wales et Larry Sanger le 15 janvier 2001. Il s'agit d'une œuvre libre, c'est-à-dire que chacun est libre de la rediffuser. Gérée en wiki dans le site web wikipedia.org grâce au logiciel MediaWiki, elle permet à tous les internautes d'écrire et de modifier des articles, ce qui lui vaut d'être qualifiée d'encyclopédie participative. Elle est devenue en quelques années l'encyclopédie la plus fournie et la plus consultée au monde. ",
                 }
             ]
         );
