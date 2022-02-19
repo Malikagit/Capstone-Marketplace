@@ -10,11 +10,11 @@ const CategoriesBox = () => {
     const getDataCategories = () => {
         setCategories( // à remplacer par fetch
             [   // rajouter maxWidth et maxHeight là où il faut + scaling
-                {name: "Category 0", imagePath:"https://picsum.photos/200?random=0"},
-                {name: "Category 1", imagePath:"https://picsum.photos/200?random=1"},
-                {name: "Category 2", imagePath:"https://picsum.photos/200?random=2"},
-                {name: "Category 3", imagePath:"https://picsum.photos/200?random=3"},
-                {name: "Category 4", imagePath:"https://picsum.photos/200?random=4"},
+                {name: "Informatique", imagePath:"https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y29tcHV0ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"},
+                {name: "Vêtements", imagePath:"https://picsum.photos/200?random=1"},
+                {name: "Véhicules", imagePath:"https://picsum.photos/200?random=2"},
+                {name: "Immobilier", imagePath:"https://picsum.photos/200?random=3"},
+                {name: "Sport", imagePath:"https://picsum.photos/200?random=4"},
             ]
         );
     };
