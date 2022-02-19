@@ -3,7 +3,7 @@ import { Grid } from "@mui/material";
 import ItemCard from "./ItemCard";
 
 const ItemsBox = () => {
-    const [items, setItems] = useState([])
+    const [items, setItems] = useState([]);
 
     const getDataItems = () => {
 		setItems( // à remplacer par fetch
@@ -25,12 +25,12 @@ const ItemsBox = () => {
 				{name: "Item 14", price:14, imagePath:"https://picsum.photos/250/200?random=14", sellerName:"Thusika", sellerRating:2.4},
 				{name: "Item 15", price:15, imagePath:"https://picsum.photos/250/200?random=15", sellerName:"Nicolas", sellerRating:2.5},
 			]
-		)
-    }
+		);
+    };
 
     useEffect(() => {
         getDataItems()
-    }, [])
+    }, []);
 
     return (
         <Grid container spacing={5} mb={5} ml={1}>
@@ -44,11 +44,11 @@ const ItemsBox = () => {
                             sellerName={elem.sellerName}
                             sellerRating={elem.sellerRating}
                         />
-                    )
+                    );
                 })
             }
         </Grid>
-    )
-}
+    );
+};
 
 export default ItemsBox;

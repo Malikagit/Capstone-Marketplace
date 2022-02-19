@@ -1,12 +1,12 @@
 import './App.css';
 
 import ItemsBox from './components/ItemsBox';
-import AppBar from './components/AppBar'
-import CategoriesBox from './components/CategoriesBox'
-import SearchBar from './components/SearchBar'
-import Product from './components/ProductBox'
-import TestDialog from './components/TestDialog'
-import AnotherDialog from './components/AnotherDialog'
+import AppBar from './components/AppBar';
+import CategoriesBox from './components/CategoriesBox';
+import SearchBar from './components/SearchBar';
+import Product from './components/ProductBox';
+import TestDialog from './components/TestDialog';
+import AnotherDialog from './components/AnotherDialog';
 
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -27,6 +27,6 @@ const App = () => {
 			<AnotherDialog/>
 		</div>
 	);
-}
+};
 
 export default App;

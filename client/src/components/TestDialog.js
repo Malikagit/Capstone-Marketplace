@@ -12,11 +12,6 @@ import Dialog from '@mui/material/Dialog';
 import RadioGroup from '@mui/material/RadioGroup';
 import Radio from '@mui/material/Radio';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-import Typography from '@mui/material/Typography';
-import { styled } from '@mui/material/styles';
-
 
 const options = [
   'Aucune',
@@ -96,7 +91,7 @@ function ConfirmationDialogRaw(props) {
       </DialogActions>
     </Dialog>
   );
-}
+};
 
 ConfirmationDialogRaw.propTypes = {
   onClose: PropTypes.func.isRequired,
