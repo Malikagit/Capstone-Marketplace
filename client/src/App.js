@@ -5,7 +5,7 @@ import AppBar from './components/AppBar';
 import CategoriesBox from './components/CategoriesBox';
 import SearchBar from './components/SearchBar';
 import Product from './components/ProductBox';
-import TestDialog from './components/TestDialog';
+import TestDialog from './components/CategoryDialog';
 import AnotherDialog from './components/AnotherDialog';
 
 import Container from '@mui/material/Container';

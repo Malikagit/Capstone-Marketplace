@@ -8,22 +8,22 @@ const ItemsBox = () => {
     const getDataItems = () => {
 		setItems( // à remplacer par fetch
 			[ // rajouter maxWidth et maxHeight là où il faut
-				{name: "Item 0", price:0, imagePath:"https://picsum.photos/250/200?random=0", sellerName:"Rostyslav", sellerRating:1.0},
-				{name: "Item 1", price:1, imagePath:"https://picsum.photos/250/200?random=1", sellerName:"Mustafa", sellerRating:1.1},
-				{name: "Item 2", price:2, imagePath:"https://picsum.photos/250/200?random=2", sellerName:"Tristan", sellerRating:1.2},
-				{name: "Item 3", price:3, imagePath:"https://picsum.photos/250/200?random=3", sellerName:"Malika", sellerRating:1.3},
-				{name: "Item 5", price:5, imagePath:"https://picsum.photos/250/200?random=5", sellerName:"Yousra", sellerRating:1.5},
-				{name: "Item 4", price:4, imagePath:"https://picsum.photos/250/200?random=4", sellerName:"Vincent", sellerRating:1.4},
-				{name: "Item 6", price:6, imagePath:"https://picsum.photos/250/200?random=6", sellerName:"Nino", sellerRating:1.6},
-				{name: "Item 7", price:7, imagePath:"https://picsum.photos/250/200?random=7", sellerName:"Adil", sellerRating:1.7},
-				{name: "Item 8", price:8, imagePath:"https://picsum.photos/250/200?random=8", sellerName:"Redouane", sellerRating:1.8},
-				{name: "Item 9", price:9, imagePath:"https://picsum.photos/250/200?random=9", sellerName:"Jennifer", sellerRating:1.9},
-				{name: "Item 10", price:10, imagePath:"https://picsum.photos/250/200?random=10", sellerName:"Kane", sellerRating:2.0},
-				{name: "Item 11", price:11, imagePath:"https://picsum.photos/250/200?random=11", sellerName:"Oumar", sellerRating:2.1},
-				{name: "Item 12", price:12, imagePath:"https://picsum.photos/250/200?random=12", sellerName:"Akim", sellerRating:2.2},
-				{name: "Item 13", price:13, imagePath:"https://picsum.photos/250/200?random=13", sellerName:"Nio", sellerRating:2.3},
-				{name: "Item 14", price:14, imagePath:"https://picsum.photos/250/200?random=14", sellerName:"Thusika", sellerRating:2.4},
-				{name: "Item 15", price:15, imagePath:"https://picsum.photos/250/200?random=15", sellerName:"Nicolas", sellerRating:2.5},
+				{name: "Item 0", price:0, imagePath:"https://picsum.photos/250/200?random=0", sellerName:"David", sellerRating:4.8},
+				{name: "Item 1", price:1, imagePath:"https://picsum.photos/250/200?random=1", sellerName:"Fatou", sellerRating:4.9},
+				{name: "Item 2", price:2, imagePath:"https://picsum.photos/250/200?random=2", sellerName:"Manuel", sellerRating:4.8},
+				{name: "Item 3", price:3, imagePath:"https://picsum.photos/250/200?random=3", sellerName:"Dimitri", sellerRating:4.9},
+				{name: "Item 5", price:5, imagePath:"https://picsum.photos/250/200?random=5", sellerName:"Bruno", sellerRating:4.8},
+				{name: "Item 4", price:4, imagePath:"https://picsum.photos/250/200?random=4", sellerName:"Alexandre", sellerRating:4.9},
+				{name: "Item 6", price:6, imagePath:"https://picsum.photos/250/200?random=6", sellerName:"Victor", sellerRating:4.8},
+				{name: "Item 7", price:7, imagePath:"https://picsum.photos/250/200?random=7", sellerName:"Marie", sellerRating:4.9},
+				{name: "Item 8", price:8, imagePath:"https://picsum.photos/250/200?random=8", sellerName:"Dora", sellerRating:4.8},
+				{name: "Item 9", price:9, imagePath:"https://picsum.photos/250/200?random=9", sellerName:"Hayat", sellerRating:4.9},
+				{name: "Item 10", price:10, imagePath:"https://picsum.photos/250/200?random=10", sellerName:"Annie", sellerRating:4.8},
+				{name: "Item 11", price:11, imagePath:"https://picsum.photos/250/200?random=11", sellerName:"Laure", sellerRating:4.8},
+				{name: "Item 12", price:12, imagePath:"https://picsum.photos/250/200?random=12", sellerName:"Kim", sellerRating:4.9},
+				{name: "Item 13", price:13, imagePath:"https://picsum.photos/250/200?random=13", sellerName:"Yasmin", sellerRating:4.9},
+				{name: "Item 14", price:14, imagePath:"https://picsum.photos/250/200?random=14", sellerName:"Martin", sellerRating:4.8},
+				{name: "Item 15", price:15, imagePath:"https://picsum.photos/250/200?random=15", sellerName:"Harry", sellerRating:4.9},
 			]
 		);
     };
