@@ -1,12 +1,15 @@
-import { Paper } from "@mui/material";
-import { Typography } from "@mui/material";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import { Link } from 'react-router-dom/';
 
 const CategoryCard = (props) => {
     return (
+            <Link style={{textDecoration: 'none'}} to="/category/">
         <Paper elevation={3}>
-            <img src={props.imagePath} alt='Not found' className='img'/>
-            <Typography textAlign="center">{props.name}</Typography>
+                <img src={props.imagePath} alt='Not found' className='img'/>
+                <Typography textAlign="center">{props.name}</Typography>
         </Paper>
+            </Link>
     );
 };
 

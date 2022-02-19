@@ -1,12 +1,14 @@
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import { Typography } from '@mui/material';
-import { Box } from '@mui/system';
-import { PaymentsOutlined, Star} from '@mui/icons-material';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import {PaymentsOutlined, Star} from '@mui/icons-material';
+import { Link } from 'react-router-dom/';
 
 const ItemCard = (props) => {
     return (
         <Grid item xs={3}>
+            <Link style={{textDecoration: 'none'}} to="/product/">
             <Paper elevation={5}>
                 <img src={props.imagePath} alt='Not found' className='img'/>
                 <Box padding={1}>
@@ -20,6 +22,7 @@ const ItemCard = (props) => {
                     </Box>
                 </Box>
             </Paper>
+        </Link>
         </Grid>
     );
 };

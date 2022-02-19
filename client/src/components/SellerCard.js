@@ -1,10 +1,10 @@
-import { Paper } from "@mui/material"
-import { Card } from "@mui/material"
-import { Typography } from "@mui/material"
-import { Star } from '@mui/icons-material';
-import { Button } from "@mui/material";
-import { Avatar } from "@mui/material";
-import { Grid } from "@mui/material";
+import Paper from "@mui/material/Paper"
+import Card from "@mui/material/Card"
+import Typography from "@mui/material/Typography"
+import Button from "@mui/material/Button";
+import Avatar from "@mui/material/Avatar";
+import Grid from "@mui/material/Grid";
+import Star from '@mui/icons-material/Star';
 
 const SellerCard = (props) => {  
     const styleSellerCard = {
