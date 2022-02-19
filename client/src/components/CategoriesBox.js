@@ -9,12 +9,12 @@ const CategoriesBox = () => {
 
     const getDataCategories = () => {
         setCategories( // à remplacer par fetch
-            [   // rajouter maxWidth et maxHeight là où il faut + scaling
+            [   
                 {name: "Informatique", imagePath:"https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y29tcHV0ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"},
-                {name: "Vêtements", imagePath:"https://picsum.photos/200?random=1"},
-                {name: "Véhicules", imagePath:"https://picsum.photos/200?random=2"},
-                {name: "Immobilier", imagePath:"https://picsum.photos/200?random=3"},
-                {name: "Sport", imagePath:"https://picsum.photos/200?random=4"},
+                {name: "Vêtements", imagePath:"https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNsb3RoZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"},
+                {name: "Véhicules", imagePath:"https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"},
+                {name: "Immobilier", imagePath:"https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8aG91c2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"},
+                {name: "Sport", imagePath:"https://images.unsplash.com/photo-1565992441121-4367c2967103?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8c3BvcnR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"},
             ]
         );
     };
