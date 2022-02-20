@@ -39,8 +39,8 @@ C2C signifie “Customer to Customer”, c’est-à-dire que les utilisateurs n�
 * Recherche
 * Détail du produit
 * Page d’authentification :
-* - Log in
-* - Sign up
+  - Log in
+  - Sign up
 * Profil utilisateur
 * Annonces favorites
 * Messages

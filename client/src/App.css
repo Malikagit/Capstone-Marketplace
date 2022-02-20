@@ -8,3 +8,13 @@
     width: 100%;
     height: 200px;
 }
+
+.category-img {
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+}
+
+.fav-img {
+    object-fit: cover;
+}
