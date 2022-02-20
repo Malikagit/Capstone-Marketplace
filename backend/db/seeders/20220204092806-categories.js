@@ -5,7 +5,7 @@ const cat = [...Array(100)].map((user) => (
     name: casual.title,
     createdAt: new Date(),
     updatedAt: new Date(),
-    imagePath: 'https://picsum.photos/300/300'
+    imagePath: 'https://picsum.photos/400/400'
   }
 ))
 
