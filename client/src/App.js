@@ -4,6 +4,7 @@ import Search from './Pages/Search';
 import Product from './Pages/Product';
 import Category from './Pages/Category';
 import Login from './Pages/Login';
+import AddProduct from './Pages/AddProduct';
 import './App.css';
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
 				<Route path='/search/' element={<Search/>}/>
 				<Route path='/product/' element={<Product/>}/>
 				<Route path='/login/' element={<Login/>}/>
+				<Route path='/addproduct' element={<AddProduct/>}/>
 				{/* <Route exact path='/SignIn' render={props => !isAuthenticated ? <SignIn {...props} /> : <Navigate to="/" />} /> */}
 		 	</Routes>
 		</BrowserRouter>

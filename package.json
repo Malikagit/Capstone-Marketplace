@@ -1,0 +1,15 @@
+{
+  "name": "aziani-tremplin-full-stack-projet-capstone",
+  "version": "1.0.0",
+  "description": "Place Marquette est une marketplace sur laquelle les utilisateurs peuvent acheter et  vendre tous types de produits, neufs et d’occasion. C2C signifie “Customer to Customer”, c’est-à-dire que les utilisateurs n’achètent pas à un fournisseur, mais directement à d’autres utilisateurs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.matrice.io/tremplin-full-stack-projet-capstone-675/aziani-tremplin-full-stack-projet-capstone.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
