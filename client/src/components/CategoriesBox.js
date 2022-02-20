@@ -4,24 +4,22 @@ import CategoryCard from "./CategoryCard";
 import { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
 import React from 'react';
-import axios from "axios";
 
+const styleCategoriesBox = {
+    height: "300px",
+    color: "black",
+    marginBottom: "50px",
+    display: "flex",
+}
 const CategoriesBox = () => {
     const [categories, setCategories] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/categories')
-            .then(response => response.data.elements)
-            .then(data => setCategories(data))
-            .catch(err => console.log(err))
-    }, [])
-
-    const styleCategoriesBox = {
-        height: "300px",
-        color: "black",
-        marginBottom: "50px",
-        display: "flex",
-    }
+        fetch("http://localhost:5000/categories")
+            .then((res) => res.json())
+            .then((data) => { setCategories(data) })
+            .catch((err) => { console.log(err) });
+    }, []);
 
     return (
         <>
@@ -29,14 +27,15 @@ const CategoriesBox = () => {
             <Container style={styleCategoriesBox}>
                 <Grid container display="flex" direction="row" justifyContent="space-evenly" alignItems="center">
                     {
-                        categories.map(elem => {
-                            return (
-                                <CategoryCard
-                                    name={elem.name}
-                                // imagePath={elem.imagePath}
-                                />
-                            )
-                        })
+                        categories.map(elem => (
+                            //return (
+                            <CategoryCard
+                                key={elem.id}
+                                name={elem.name}
+                                imagePath={elem.imagePath}
+                            />
+                        )
+                        )
                     }
                 </Grid>
             </Container>

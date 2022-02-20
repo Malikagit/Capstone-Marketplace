@@ -111,7 +111,7 @@ exports.createCategory = (req, res) => {
 }
 //get categories
 exports.getCategories = (req, res) => {
-    Category.findAll({ limit: 10, raw: true })
+    Category.findAll({ limit: 4, raw: true })
         .then(categories => {
             res.json(categories);
 
