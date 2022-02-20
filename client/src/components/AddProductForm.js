@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
+import CategoryButton from '../components/CategoryButton'
 
 export default function AddProductForm() {
 	return (
@@ -20,7 +21,7 @@ export default function AddProductForm() {
                         autoComplete="off"
                     >
                         <Stack spacing={0.5} direction='column' sx={{width: '30vw'}}>
-                            <Button variant='outlined' sx={{alignItems:'center', borderColor:'lightgray', textTransform:'none', height:'44px'}}>Catégorie</Button>
+                            <CategoryButton/>
                             <TextField id="outlined-basic" label="Titre" variant="outlined"/>
                             <TextField
                                 id="outlined-multiline-static"
