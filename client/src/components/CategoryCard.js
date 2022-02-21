@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom/';
 
 const CategoryCard = (props) => {
     return (
-        <Link style={{textDecoration: 'none'}} to="/category/">
+        <Link style={{ textDecoration: 'none' }} to="/category/">
             <Paper elevation={3}>
-                    <img src={props.imagePath} alt='Not found' className='img category-img' />
-                    <Typography textAlign="center">{props.name}</Typography>
+                <img src={props.imagePath} alt='Not found' className='img category-img' />
+                <Typography textAlign="center">{props.name}</Typography>
             </Paper>
         </Link>
     );

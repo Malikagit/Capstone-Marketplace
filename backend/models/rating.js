@@ -11,14 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.User, { uniqueKey: 'userId' });
-      this.belongsTo(models.User, { uniqueKey: 'author' });
+      this.belongsTo(models.Product, { foreignKey: 'productId', as: 'productRatings' });
+      this.belongsTo(models.User, { foreignKey: 'author' });
     }
   }
   Rating.init({
     rating: DataTypes.INTEGER,
     comment: DataTypes.TEXT,
-    userId: DataTypes.INTEGER,
+    productId: DataTypes.INTEGER,
     author: DataTypes.INTEGER
   }, {
     sequelize,
